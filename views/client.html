@@ -1,4 +1,9 @@
+{{#appId}}
 <form action="/login" method="GET">
-    <input type="hidden" name="appId" value="{{appId}}" />
+    <input type="hidden" name="appId" value="{{.}}" />
     <button>Login to Server</button>
 </form>
+{{/appId}}
+{{#data}}
+{{.}}
+{{/data}}

@@ -12,25 +12,8 @@ const data = require('./data-server');
 const server = new Server();
 server.connection({ port: 3000 });
 
-
-const options = {
-    oz: {
-        encryptionPassword: data.encryptionPassword,
-        loadAppFunc: function (id, callback) {
-            callback(null, data.apps[id]);
-        },
-        loadGrantFunc: function (id, callback) {
-            const ext = {
-                public: 'everybody knows',
-                private: 'the the dice are loaded'
-            };
-            callback(null, data.grant, ext);
-        }
-    }
-};
-
 server.register(scarecrow)
-    .then(() => server.auth.strategy('oz', 'oz', true, options))
+    .then(() => server.auth.strategy('oz', 'oz', true, data.ozOptions))
     .then(() => server.register(require('vision'), err => {
         server.views({
             engines: {
@@ -38,7 +21,6 @@ server.register(scarecrow)
             },
             relativeTo: path.join(__dirname, 'views'),
             isCached: false
-            //   path: 'templates'
         });
     }))
     .then(() => endpoints.forEach(p => server.route(require(p)(server))))
