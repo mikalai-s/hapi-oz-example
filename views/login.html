@@ -1,0 +1,7 @@
+<form action="/login" method="POST">
+    In order to allow {{appId}} to get an access to your resources on the server, you have to login first:
+    <input name="username">
+    <input name="password" type="password">
+    <input type="hidden" name="appId" value="{{appId}}" />
+    <button type="submit">Login</button>
+</form>
