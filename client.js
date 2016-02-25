@@ -4,14 +4,10 @@ const oz = require('oz');
 const Promise = require('bluebird');
 const request = Promise.promisify(require('request'), { context: require('request'), multiArgs: true });
 
-const appHawkCredentials = {
-    id: 'myleapp',
-    key: 'werxhqb98rpaxn39848xrunpaw3489ruxnpa98w4rxn',
-    algorithm: 'sha256'
-};
 
 
-function getRequestOptions(method, url) {
+
+function getRequestOptions(method, url, ) {
     return {
         url: url,
         method: method,
