@@ -23,7 +23,6 @@ module.exports = function (server) {
                         },
                         json: true
                     }, function (err, response, appTicket) {
-                        console.log(70, appTicket, typeof appTicket);
                         if (err) { return reply(err); }
                         if (response.statusCode !== 200) { return reply(appTicket); }
 
