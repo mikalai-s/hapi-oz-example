@@ -46,8 +46,11 @@ module.exports = function (server) {
             config: {
                 auth: false,
                 handler: function (request, reply) {
-                    // The user is redirected to the server, logs in, and grant app access, resulting in an rsvp
                     const app = data.apps[request.payload.appId];
+                    if (request.payload.allow !== 'yes') {
+                        return reply.redirect(app.callbackUrl);
+                    }
+                    // The user is redirected to the server, logs in, and grant app access, resulting in an rsvp
                     oz.ticket.rsvp(app, data.grant, data.encryptionPassword, {}, (err, rsvp) => {
                         // After granting app access, the user returns to the app with the rsvp
                         reply.redirect(app.callbackUrl + '?appId=' + request.payload.appId + '&rsvp=' + rsvp)

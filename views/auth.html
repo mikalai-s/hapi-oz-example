@@ -1,6 +1,6 @@
 <form action="/auth" method="POST">
     Are you sure you want to grant access to {{appId}} app?
     <input type="hidden" name="appId" value="{{appId}}" />
-    <button type="reset">No</button>
-    <button type="submit">YES</button>
+    <button type="submit" name="allow" value="no">No</button>
+    <button type="submit" name="allow" value="yes">YES</button>
 </form>
