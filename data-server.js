@@ -14,10 +14,14 @@ const apps = {
     }
 };
 
+const users = {
+    mikalai: '2'
+}
+
 const grant = {
     id: 'a1b2c3d4e5f6g7h8i9j0',
     app: 'myleapp',
-    user: 'mik'
+    user: 'mikalai'
 };
 
 const ozOptions = {
@@ -40,6 +44,7 @@ const ozOptions = {
 var data = module.exports = {
     encryptionPassword: encryptionPassword,
     apps: apps,
+    users: users,
     grant: grant,
     ozOptions: ozOptions
 };

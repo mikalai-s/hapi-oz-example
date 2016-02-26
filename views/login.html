@@ -5,3 +5,7 @@
     <input type="hidden" name="appId" value="{{appId}}" />
     <button type="submit">Login</button>
 </form>
+
+{{#error}}
+<span style="color:red">{{.}}</span>
+{{/error}}
